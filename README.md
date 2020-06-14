@@ -10,7 +10,7 @@ Postman
 
 # IMPORTANT ABOUT DOCKER
 
-Docker doesn't connect to mysql correctly i think, because when I try to hit some route in postman (ex. /user/registration) it throws ECONNREFUSED error. It could be because I am using win 7 (unfortunately) and already had problems with docker before, or it could be because my_root_password in docker-compose.yml isn't correct or the code itself isn't completely correct (I'm guessing it's the latter)
+Docker doesn't connect to mysql correctly i think, because when I try to hit some route in postman (ex. /user/registration) it throws ECONNREFUSED error. It could be because I am using win 7 (unfortunately) and already had problems with docker before, or it could be because my_root_password in docker-compose.yml isn't correct or the code itself isn't completely correct (I'm guessing it's the latter). But I added it anyways. 
 
 ## Tables used
 
