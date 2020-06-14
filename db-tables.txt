@@ -1,0 +1,43 @@
+CREATE TABLE `users` (
+ `user_id` int(11) NOT NULL AUTO_INCREMENT,
+ `firstName` varchar(255) NOT NULL,
+ `lastName` varchar(255) NOT NULL,
+ `email` varchar(255) NOT NULL,
+ `password` varchar(100) NOT NULL,
+ `repeatedPassword` varchar(100) NOT NULL,
+ `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `userKey` varchar(255) NOT NULL,
+ PRIMARY KEY (`user_id`),
+ UNIQUE KEY `email` (`email`),
+ UNIQUE KEY `userKey` (`userKey`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1
+
+
+
+
+CREATE TABLE `resettokens` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `email` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+ `token` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+ `expiration` datetime DEFAULT NULL,
+ `createdAt` datetime NOT NULL,
+ `updatedAt` datetime NOT NULL,
+ `used` int(11) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci
+
+
+
+
+CREATE TABLE `photos` (
+ `photo_id` int(5) NOT NULL AUTO_INCREMENT,
+ `photo` varchar(255) NOT NULL,
+ `photo_name` varchar(255) NOT NULL,
+ `photo_type` varchar(255) NOT NULL,
+ `userKey` varchar(255) DEFAULT NULL,
+ `size` float DEFAULT NULL,
+ `created_at` date DEFAULT NULL,
+ PRIMARY KEY (`photo_id`),
+ KEY `userKey` (`userKey`),
+ CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`userKey`) REFERENCES `users` (`userKey`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1
